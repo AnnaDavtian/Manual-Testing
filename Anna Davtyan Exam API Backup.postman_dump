@@ -1,0 +1,306 @@
+{
+	"version": 1,
+	"collections": [
+		{
+			"id": "a1662eb5-efa9-4e8e-8efd-5f566e915713",
+			"uid": "0-a1662eb5-efa9-4e8e-8efd-5f566e915713",
+			"name": "Course Discount",
+			"description": null,
+			"auth": null,
+			"events": null,
+			"variables": [],
+			"order": [
+				"a0820af4-e7ea-412e-a3c6-2659aadad3fc",
+				"dbc5fcef-9105-4810-a783-d77d3e29a8e5",
+				"55caf994-ef80-4cad-85e9-c8bca487912e",
+				"557556ae-66de-43fe-a08a-ac1ac79234c4",
+				"f5c34856-863b-488c-8c69-b0e769d59a0f"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {},
+			"createdAt": "2022-12-06T20:49:48.197Z",
+			"folders": [],
+			"requests": [
+				{
+					"id": "557556ae-66de-43fe-a08a-ac1ac79234c4",
+					"uid": "0-557556ae-66de-43fe-a08a-ac1ac79234c4",
+					"name": "Login Non Admin",
+					"url": "https://qwallity-exam.onrender.com/login/api",
+					"description": null,
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "basic",
+						"basic": [
+							{
+								"key": "password",
+								"value": "anna11nonad",
+								"type": "string"
+							},
+							{
+								"key": "username",
+								"value": "anna11non",
+								"type": "string"
+							}
+						]
+					},
+					"events": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "90f3e81e-8335-4dc7-9463-f9fe4e3253ec",
+								"exec": [
+									"var token = pm.response.json().token;\r",
+									"pm.environment.set(\"token_non_admin\", token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": null,
+					"responses_order": [],
+					"preRequestScript": null,
+					"tests": "var token = pm.response.json().token;\r\npm.environment.set(\"token_non_admin\", token);",
+					"currentHelper": "basicAuth",
+					"helperAttributes": {
+						"id": "basic",
+						"username": "anna11non",
+						"password": "anna11nonad"
+					},
+					"collectionId": "a1662eb5-efa9-4e8e-8efd-5f566e915713",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "55caf994-ef80-4cad-85e9-c8bca487912e",
+					"uid": "0-55caf994-ef80-4cad-85e9-c8bca487912e",
+					"name": "Set Discount",
+					"url": "https://qwallity-exam.onrender.com/set_discount/api",
+					"description": null,
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "string"
+							}
+						]
+					},
+					"events": null,
+					"folder": null,
+					"responses_order": [],
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{token}}"
+					},
+					"collectionId": "a1662eb5-efa9-4e8e-8efd-5f566e915713",
+					"rawModeData": "{\r\n  \"course_type\": \"Fundamental\",\r\n  \"discount\": 50,\r\n  \"course_count\": 4\r\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "a0820af4-e7ea-412e-a3c6-2659aadad3fc",
+					"uid": "0-a0820af4-e7ea-412e-a3c6-2659aadad3fc",
+					"name": "Login Admin",
+					"url": "https://qwallity-exam.onrender.com/login/api",
+					"description": null,
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "basic",
+						"basic": [
+							{
+								"key": "password",
+								"value": "anna2211",
+								"type": "string"
+							},
+							{
+								"key": "username",
+								"value": "Anna22d",
+								"type": "string"
+							}
+						]
+					},
+					"events": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "57e5c17c-755f-4e89-b605-57d85fd0f647",
+								"exec": [
+									"var token = pm.response.json().token;\r",
+									"pm.environment.set(\"token\", token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": null,
+					"responses_order": [],
+					"preRequestScript": null,
+					"tests": "var token = pm.response.json().token;\r\npm.environment.set(\"token\", token);",
+					"currentHelper": "basicAuth",
+					"helperAttributes": {
+						"id": "basic",
+						"username": "Anna22d",
+						"password": "anna2211"
+					},
+					"collectionId": "a1662eb5-efa9-4e8e-8efd-5f566e915713",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "dbc5fcef-9105-4810-a783-d77d3e29a8e5",
+					"uid": "0-dbc5fcef-9105-4810-a783-d77d3e29a8e5",
+					"name": "Add Course",
+					"url": "https://qwallity-exam.onrender.com/add_course/api",
+					"description": null,
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "string"
+							}
+						]
+					},
+					"events": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "530162cd-859e-4492-9840-695471fd9005",
+								"exec": [
+									"var course_id = pm.response.json().id;\r",
+									"pm.environment.set(\"course_id\", course_id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": null,
+					"responses_order": [],
+					"preRequestScript": null,
+					"tests": "var course_id = pm.response.json().id;\r\npm.environment.set(\"course_id\", course_id);",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{token}}"
+					},
+					"collectionId": "a1662eb5-efa9-4e8e-8efd-5f566e915713",
+					"rawModeData": "{\r\n  \"title\": \"AnnaDavtyanExam\",\r\n  \"body\": \"CoursebodyExam\",\r\n  \"coursetype\": \"1\",\r\n  \"author\": \"AnnaDavExam\",\r\n  \"price\": 963\r\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "f5c34856-863b-488c-8c69-b0e769d59a0f",
+					"uid": "0-f5c34856-863b-488c-8c69-b0e769d59a0f",
+					"name": "Buy Course As Non Admin",
+					"url": "https://qwallity-exam.onrender.com/buy_course/api/{{course_id}}/anna11non",
+					"description": null,
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{token_non_admin}}",
+								"type": "string"
+							}
+						]
+					},
+					"events": null,
+					"folder": null,
+					"responses_order": [],
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{token_non_admin}}"
+					},
+					"collectionId": "a1662eb5-efa9-4e8e-8efd-5f566e915713",
+					"headers": "",
+					"pathVariables": {}
+				}
+			]
+		}
+	],
+	"environments": [
+		{
+			"id": "dff64978-72a6-43a5-979c-3b2afeb44bad",
+			"name": "QA",
+			"values": [
+				{
+					"key": "token",
+					"value": "",
+					"type": "any",
+					"enabled": true
+				},
+				{
+					"key": "course_id",
+					"value": "",
+					"type": "any",
+					"enabled": true
+				},
+				{
+					"key": "token_non_admin",
+					"value": "",
+					"type": "any",
+					"enabled": true
+				}
+			]
+		},
+		{
+			"id": "50a8d821-e85e-4ba6-8360-25a709d42adb",
+			"name": "My Workspace - globals",
+			"values": [
+				{
+					"key": "token",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Im5rcnR5YW4iLCJpZCI6MTIzNTA2OSwicm9sZSI6MSwiZXhwIjoxNjY4NzA0NDI1fQ.igtBGp_cRxLoeP6AXVIFqEAyb7audf944Bm2ZuIiHV0",
+					"type": "default",
+					"enabled": false
+				}
+			]
+		}
+	],
+	"headerPresets": [],
+	"globals": []
+}
